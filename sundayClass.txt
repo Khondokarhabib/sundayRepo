@@ -1,0 +1,55 @@
+10/04/2020	
+##
+
+	JavascriptExecutor js = (JavascriptExecutor) driver;  
+	js.executeScript(Script,Arguments);
+	js.executeScript("window.scrollBy(0,1000)");
+
+
+
+
+##	double d=10;//up
+	int a=25;//low 
+	a=(int)d;//casting upcasting DowCasting
+	double c=(double)a; //
+
+
+##	public static void scrollMyScreen(WebDriver dr,String pixel) {
+		
+		JavascriptExecutor js = (JavascriptExecutor) dr;  
+		js.executeScript("window.scrollBy(0,"+pixel+")");
+	}
+		
+		CommonDataProvider.scrollMyScreen(dr, "800");
+		Thread.sleep(4000);
+		CommonDataProvider.scrollMyScreen(dr, "-300");
+		
+		Thread.sleep(4000);
+
+
+
+
+##########
+package osa.com.pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Home {
+
+	WebDriver dr;
+	public Home(WebDriver dr){
+	this.dr=dr;
+	PageFactory.initElements(dr, Home.class);
+}
+
+
+@FindBy(xpath="//a[text()='Forum']") WebElement forum;
+
+public void clickOnForumButton() {
+	forum.click();
+}
+
+}
